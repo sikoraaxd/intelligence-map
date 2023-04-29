@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState} from "react";
 import * as d3 from "d3";
 import NodesPanel from "./_topicpanel";
 import TermsPanel from "./_termpanel";
@@ -19,7 +19,6 @@ type Props = {
 const Graphs = ({ data, setData, loaded, setLoaded }: Props) => {
     const ref = useRef<SVGSVGElement>(null);
     const [showEdit, setShowEdit] = useState(false);
-
     const handleRemoveNode = () => {
         setShowEdit(!showEdit);
     };
@@ -105,6 +104,8 @@ const Graphs = ({ data, setData, loaded, setLoaded }: Props) => {
                 rect.attr("x", (d) => (d as any).x - 30).attr("y", (d) => (d as any).y - 15);
                 text.attr("x", (d) => (d as any).x).attr("y", (d) => (d as any).y);
             });
+
+            
         })
     }, [data])
     return (

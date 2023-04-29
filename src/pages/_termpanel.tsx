@@ -19,10 +19,12 @@ const TermsPanel = ({ data, setData }: Props) => {
       };
     
       const handleButtonClick = () => {
+        if (inputValue == "") {
+            return;
+        }
         const newData = [...data];
         const topicIndex = newData[0].nodes.findIndex((node) => node.id === inputValue);
         if (topicIndex == -1) {
-            console.log('here');
             newData[0].nodes.push({id: inputValue, group:2});
             setData(newData);
         }

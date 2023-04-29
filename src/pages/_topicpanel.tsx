@@ -19,6 +19,9 @@ const NodesPanel = ({ data, setData }: Props) => {
       };
     
       const handleButtonClick = () => {
+        if (inputValue == "") {
+            return;
+        }
         const newData = [...data];
         const topicIndex = newData[0].nodes.findIndex((node) => node.id === inputValue);
         if (topicIndex == -1) {
